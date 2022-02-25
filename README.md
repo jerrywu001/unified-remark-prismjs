@@ -86,8 +86,6 @@ npm i
 npm run play
 ```
 
-
-
 ## options
 
 ```js
