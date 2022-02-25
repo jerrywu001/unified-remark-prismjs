@@ -124,23 +124,18 @@ const remarkPrism =
                     const preDom = parent.querySelector('pre');
                     const codeDom = preDom.firstElementChild;
                     const content = codeDom.innerText;
-                    btnDom.addEventListener(
-                      'click',
-                      function () {
-                        var copyarea = document.createElement('textarea');
-                        copyarea.setAttribute('readonly', 'readonly');
-                        copyarea.value = content;
-                        document.body.appendChild(copyarea);
-                        copyarea.select();
-                        var res = document.execCommand('copy');
-                        document.body.removeChild(copyarea);
-                        btnDom.classList.add('code-copied');
-                        setTimeout(() => {
-                          btnDom.classList.remove('code-copied');
-                        }, 1600);
-                      },
-                      false
-                    );
+
+                    var copyarea = document.createElement('textarea');
+                    copyarea.setAttribute('readonly', 'readonly');
+                    copyarea.value = content;
+                    document.body.appendChild(copyarea);
+                    copyarea.select();
+                    var res = document.execCommand('copy');
+                    document.body.removeChild(copyarea);
+                    btnDom.classList.add('code-copied');
+                    setTimeout(() => {
+                      btnDom.classList.remove('code-copied');
+                    }, 1600);
                   `
                 },
                 [{ type: 'text', value: '' }]
