@@ -20,6 +20,7 @@ unified()()
     enableCopy: true,
     plugins: [
       'autolinker',
+      'show-invisibles',
       'data-uri-highlight',
       'inline-color',
       'line-numbers',

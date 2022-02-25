@@ -69,7 +69,7 @@ ls -la
 ```
 
 
-```css
+```css [attrname=xxx][class="xxx1"]{2,3}[class="xxx2 xxx3"]
 @font-face {
 	src: url(http://lea.verou.me/logo.otf);
 	font-family: 'LeaVerou';

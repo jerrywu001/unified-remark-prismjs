@@ -20,6 +20,7 @@ const getResolvedMarkdown = async () => {
       enableCopy: true,
       plugins: [
         'autolinker',
+        'show-invisibles',
         'data-uri-highlight',
         'inline-color',
         'line-numbers',

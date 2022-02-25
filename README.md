@@ -1,6 +1,15 @@
 # unified-remark-prismjs
 
-> Syntax highlighter for markdown code blocks using Prism, **use with remark-rehype**
+> Syntax highlighter for markdown code blocks using Prism (modified from [remark-prism](https://www.npmjs.com/package/remark-prism)), **use with remark-rehype**
+
+
+- added some features
+
+1. filename
+2. line highlight
+3. language tag
+4. copy button
+5. refine the attribute syntax
 
 ## installation
 
@@ -52,24 +61,51 @@ require('unified')()
 
 ## Don't forget to import styles
 
-- style for copy button, language tag, filename
-
-```css
-@import url('unified-remark-prismjs/src/style.css');
-```
-
-- prismjs plugin && theme styles have been used
-
+- base style && prismjs theme style
 
 ```css
 @import url('unified-remark-prismjs/src/style.css');
 @import url('prism-themes/themes/prism-base16-ateliersulphurpool.light.min.css');
+```
+
+- prismjs plugins style have been used
+
+
+```css
 @import url('prismjs/plugins/line-numbers/prism-line-numbers.css');
 @import url('prismjs/plugins/inline-color/prism-inline-color.min.css');
 @import url('prismjs/plugins/diff-highlight/prism-diff-highlight.min.css');
 @import url('prismjs/plugins/treeview/prism-treeview.min.css');
 @import url('prismjs/plugins/command-line/prism-command-line.min.css');
 @import url('prismjs/plugins/show-invisibles/prism-show-invisibles.min.css');
+```
+## attributes in syntax
+
+> you can use any one you like
+
+```
+
+```js{2,3}
+```js {2,3}
+```js {2, 3}
+
+
+```js{2,3}[attrname=xxx][class=xxx]
+```js {2,3}[attrname=xxx][class=xxx]
+```js [attrname=xxx]{2,3}[class=xxx]
+```js {2,3}[attrname=xxx class=xxx]
+```js [attrname=xxx class=xxx]{2,3}
+
+
+```js [attrname=xxx class=xxx]
+```js [class=xxx]
+
+```js {2,3}[attrname=xxx class="xxx1 xxx2 xxx3"]
+```js {2,3}[attrname=xxx][class="xxx1 xxx2 xxx3"]
+```js {2,3}[attrname=xxx][class="xxx1"][class="xxx2 xxx3"]
+```js [attrname=xxx][class="xxx1"]{2,3}[class="xxx2 xxx3"]
+```js{2,3}[attrname=xxx][class="xxx1"][class="xxx2"][class="xxx3"]
+
 ```
 
 ## full usage
@@ -112,3 +148,244 @@ use(require('unified-remark-prismjs'), {
   ],
 });
 ```
+
+## Instructions
+
+**import base style**
+
+```css
+@import url('unified-remark-prismjs/src/style.css');
+@import url('prism-themes/themes/prism-base16-ateliersulphurpool.light.min.css');
+```
+
+- language tag
+
+```js
+
+use(require('unified-remark-prismjs'), {
+  showLanguage: true, // show language tag
+})
+
+```
+
+![lang](./imgs/lang-tag.png)
+
+---
+
+- enabled copy
+
+```js
+
+use(require('unified-remark-prismjs'), {
+  enableCopy: true, // show copy button
+})
+
+```
+![lang](./imgs/copy.png)
+
+---
+
+- filename
+
+```md
+
+```js[xxx/xxx.js]
+
+```
+
+or
+
+```md
+
+```js[filename=xxx/xxx.spec.js]
+
+```
+
+![lang](./imgs/filename.png)
+
+---
+
+- line highlight
+
+```md
+
+```js{1,3-5}
+
+```
+
+![lang](./imgs/line-highlight.png)
+
+---
+
+## Instructions for plugins
+
+- autolinker
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'autolinker',
+  ],
+});
+```
+
+**then import plugin style**
+
+```css
+@import url('prismjs/plugins/autolinker/prism-autolinker.css');
+```
+
+![lang](./imgs/linker.png)
+
+---
+
+- data-uri-highlight
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'data-uri-highlight',
+  ],
+});
+```
+
+![lang](./imgs/uri-highlight.png)
+
+---
+
+- inline-color
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'inline-color',
+  ],
+});
+```
+
+**then import plugin style**
+
+```css
+@import url('prismjs/plugins/inline-color/prism-inline-color.min.css');
+```
+
+![lang](./imgs/inline-color.png)
+
+---
+
+- line-numbers
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'line-numbers',
+  ],
+});
+```
+
+**then import plugin style**
+
+```css
+@import url('prismjs/plugins/line-numbers/prism-line-numbers.css');
+```
+
+![lang](./imgs/line-numbers.png)
+
+
+**Line numbers will not used**
+
+```
+
+```js[class=no-line-numbers]
+
+```
+
+---
+
+- diff-highlight
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'diff-highlight',
+  ],
+});
+```
+
+**then import plugin style**
+
+```css
+@import url('prismjs/plugins/diff-highlight/prism-diff-highlight.min.css');
+```
+
+![lang](./imgs/diff.png)
+
+---
+
+- treeview
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'treeview',
+  ],
+});
+```
+
+**then import plugin style**
+
+```css
+@import url('prismjs/plugins/treeview/prism-treeview.min.css');
+```
+
+![lang](./imgs/treeview.png)
+
+---
+
+- command-line
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'command-line',
+  ],
+});
+```
+
+**then import plugin style**
+
+```css
+@import url('prismjs/plugins/command-line/prism-command-line.min.css');
+@import url('prismjs/plugins/show-invisibles/prism-show-invisibles.min.css');
+```
+
+![lang](./imgs/command-line.png)
+
+
+**command line will not used**
+
+```
+
+```js[class=no-command-line]
+
+```
+
+---
+
+- show-invisibles
+
+```js
+use(require('unified-remark-prismjs'), {
+  plugins: [
+    'show-invisibles',
+  ],
+});
+```
+
+**then import plugin style**
+
+```css
+@import url('prismjs/plugins/show-invisibles/prism-show-invisibles.min.css');
+```
+
+![lang](./imgs/space.png)
