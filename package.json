@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/jerrywu001/unified-remark-prismjs#readme",
   "dependencies": {
-    "copy-to-clipboard": "^3.3.1",
     "escape-html": "~1.0.3",
     "jsdom": "~16.5.3",
     "parse-numeric-range": "~1.2.0",
