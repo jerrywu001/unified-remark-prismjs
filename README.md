@@ -106,6 +106,8 @@ require('unified')()
 ```js [attrname=xxx][class="xxx1"]{2,3}[class="xxx2 xxx3"]
 ```js{2,3}[attrname=xxx][class="xxx1"][class="xxx2"][class="xxx3"]
 
+```js[attrname="aaa1 aaa2 cc bb nn"][attrname2="ccc3-f-gg-hh-hh"][class="xxx1"]{2,3}[cdf=op][class="xxx2 xxx3"]
+
 ```
 
 ## full usage
