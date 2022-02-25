@@ -1,4 +1,4 @@
-const { map } = require('unist-util-map');
+const map = require('unist-util-map');
 const rangeParse = require('parse-numeric-range');
 const createHighlighter = require('./highlight.js');
 const { normalizeCodeNode, h, getCodeAttributes } = require('./core.js');
@@ -22,7 +22,7 @@ const remarkPrism =
       normalizeCodeNode(node);
 
       if (node.meta === null) {
-        node.meta = '[class=line-numbers]';
+        node.meta = '[]';
       }
 
       if (
@@ -118,6 +118,30 @@ const remarkPrism =
                   className: 'code-copy-block',
                   style: 'position: absolute;',
                   title: 'copy',
+                  onclick: `
+                    const btnDom = this;
+                    const parent = btnDom.parentElement;
+                    const preDom = parent.querySelector('pre');
+                    const codeDom = preDom.firstElementChild;
+                    const content = codeDom.innerText;
+                    btnDom.addEventListener(
+                      'click',
+                      function () {
+                        var copyarea = document.createElement('textarea');
+                        copyarea.setAttribute('readonly', 'readonly');
+                        copyarea.value = content;
+                        document.body.appendChild(copyarea);
+                        copyarea.select();
+                        var res = document.execCommand('copy');
+                        document.body.removeChild(copyarea);
+                        btnDom.classList.add('code-copied');
+                        setTimeout(() => {
+                          btnDom.classList.remove('code-copied');
+                        }, 1600);
+                      },
+                      false
+                    );
+                  `
                 },
                 [{ type: 'text', value: '' }]
               )
