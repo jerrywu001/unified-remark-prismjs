@@ -9,7 +9,7 @@ const remarkPrism =
   (options = {}) =>
   (tree) => {
     const preNodeCount = (tree.children || []).length;
-    const style = fs.readFileSync(path.join(process.cwd(), './src/style.css'), { encoding: 'utf-8' });
+    const style = fs.readFileSync(path.join(process.cwd(), 'node_modules/unified-remark-prismjs/src/style.css'), { encoding: 'utf-8' });
     const highlight = createHighlighter(options);
     const { plugins = [], showLanguage = false, enableCopy = false } = options;
     const enableLineNumbers =
