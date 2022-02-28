@@ -61,9 +61,10 @@ require('unified')()
 
 ## Don't forget to import styles
 
-- prismjs theme style
+- base style && prismjs theme style
 
 ```css
+@import url('unified-remark-prismjs/src/style.css');
 @import url('prism-themes/themes/prism-base16-ateliersulphurpool.light.min.css');
 ```
 
@@ -155,9 +156,10 @@ use(require('unified-remark-prismjs'), {
 
 ## Instructions
 
-**import prismjs theme style**
+**import base style**
 
 ```css
+@import url('unified-remark-prismjs/src/style.css');
 @import url('prism-themes/themes/prism-base16-ateliersulphurpool.light.min.css');
 ```
 
