@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const map = require('unist-util-map');
 const rangeParse = require('parse-numeric-range');
 const createHighlighter = require('./highlight.js');
@@ -6,6 +8,8 @@ const { normalizeCodeNode, h, getCodeAttributes } = require('./core.js');
 const remarkPrism =
   (options = {}) =>
   (tree) => {
+    const preNodeCount = (tree.children || []).length;
+    const style = fs.readFileSync(path.join(process.cwd(), './src/style.css'), { encoding: 'utf-8' });
     const highlight = createHighlighter(options);
     const { plugins = [], showLanguage = false, enableCopy = false } = options;
     const enableLineNumbers =
@@ -13,7 +17,7 @@ const remarkPrism =
     const enableCommandLine =
       plugins.findIndex((v) => v.includes('command-line')) > -1;
 
-    return map(tree, (node) => {
+    return map(tree, (node, index) => {
       const { type } = node;
 
       if (!['code'].includes(type)) {
@@ -141,6 +145,7 @@ const remarkPrism =
                 [{ type: 'text', value: '' }]
               )
             : null,
+          index === preNodeCount - 1 ? h('style', {}, [{ type: 'text', value: style }]) : null,
         ].filter(Boolean)
       );
 

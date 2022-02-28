@@ -61,10 +61,9 @@ require('unified')()
 
 ## Don't forget to import styles
 
-- base style && prismjs theme style
+- prismjs theme style
 
 ```css
-@import url('unified-remark-prismjs/src/style.css');
 @import url('prism-themes/themes/prism-base16-ateliersulphurpool.light.min.css');
 ```
 
@@ -88,6 +87,9 @@ require('unified')()
 ```js{2,3}
 ```js {2,3}
 ```js {2, 3}
+
+```js [xxx.js][attrname=xxx]{2,3}[class=xxx]
+```js [filename=xxx.js]{2,3}[attrname=xxx class=xxx]
 
 
 ```js{2,3}[attrname=xxx][class=xxx]
@@ -153,10 +155,9 @@ use(require('unified-remark-prismjs'), {
 
 ## Instructions
 
-**import base style**
+**import prismjs theme style**
 
 ```css
-@import url('unified-remark-prismjs/src/style.css');
 @import url('prism-themes/themes/prism-base16-ateliersulphurpool.light.min.css');
 ```
 
@@ -170,7 +171,7 @@ use(require('unified-remark-prismjs'), {
 
 ```
 
-![lang](./imgs/lang-tag.png)
+![lang](https://ik.imagekit.io/jerrywu001/lang-tag.png)
 
 ---
 
@@ -183,7 +184,7 @@ use(require('unified-remark-prismjs'), {
 })
 
 ```
-![lang](./imgs/copy.png)
+![lang](https://ik.imagekit.io/jerrywu001/copy.png)
 
 ---
 
@@ -203,7 +204,7 @@ or
 
 ```
 
-![lang](./imgs/filename.png)
+![lang](https://ik.imagekit.io/jerrywu001/filename.png)
 
 ---
 
@@ -215,7 +216,7 @@ or
 
 ```
 
-![lang](./imgs/line-highlight.png)
+![lang](https://ik.imagekit.io/jerrywu001/line-highlight.png)
 
 ---
 
@@ -237,7 +238,7 @@ use(require('unified-remark-prismjs'), {
 @import url('prismjs/plugins/autolinker/prism-autolinker.css');
 ```
 
-![lang](./imgs/linker.png)
+![lang](https://ik.imagekit.io/jerrywu001/linker.png)
 
 ---
 
@@ -251,7 +252,7 @@ use(require('unified-remark-prismjs'), {
 });
 ```
 
-![lang](./imgs/uri-highlight.png)
+![lang](https://ik.imagekit.io/jerrywu001/uri-highlight.png)
 
 ---
 
@@ -271,7 +272,7 @@ use(require('unified-remark-prismjs'), {
 @import url('prismjs/plugins/inline-color/prism-inline-color.min.css');
 ```
 
-![lang](./imgs/inline-color.png)
+![lang](https://ik.imagekit.io/jerrywu001/inline-color.png)
 
 ---
 
@@ -291,7 +292,7 @@ use(require('unified-remark-prismjs'), {
 @import url('prismjs/plugins/line-numbers/prism-line-numbers.css');
 ```
 
-![lang](./imgs/line-numbers.png)
+![lang](https://ik.imagekit.io/jerrywu001/line-numbers.png)
 
 
 **Line numbers will not used**
@@ -320,7 +321,7 @@ use(require('unified-remark-prismjs'), {
 @import url('prismjs/plugins/diff-highlight/prism-diff-highlight.min.css');
 ```
 
-![lang](./imgs/diff.png)
+![lang](https://ik.imagekit.io/jerrywu001/diff.png)
 
 ---
 
@@ -340,7 +341,7 @@ use(require('unified-remark-prismjs'), {
 @import url('prismjs/plugins/treeview/prism-treeview.min.css');
 ```
 
-![lang](./imgs/treeview.png)
+![lang](https://ik.imagekit.io/jerrywu001/treeview.png)
 
 ---
 
@@ -361,7 +362,7 @@ use(require('unified-remark-prismjs'), {
 @import url('prismjs/plugins/show-invisibles/prism-show-invisibles.min.css');
 ```
 
-![lang](./imgs/command-line.png)
+![lang](https://ik.imagekit.io/jerrywu001/command-line.png)
 
 
 **command line will not used**
@@ -390,4 +391,4 @@ use(require('unified-remark-prismjs'), {
 @import url('prismjs/plugins/show-invisibles/prism-show-invisibles.min.css');
 ```
 
-![lang](./imgs/space.png)
+![lang](https://ik.imagekit.io/jerrywu001/space.png)

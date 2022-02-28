@@ -10,9 +10,7 @@ const remarkRehype = require('remark-rehype');
 const reporter = require('vfile-reporter');
 
 const getResolvedMarkdown = async () => {
-  const style = await fs.readFileSync(path.join(process.cwd(), './src/style.css'), { encoding: 'utf-8' });
   const str = await fs.readFileSync(path.join(process.cwd(), './src/example/test.md'), { encoding: 'utf-8' });
-  console.error('sdsssss');
   const file = await unified()
     .use(remarkParse)
     .use(remarkPrism, {
@@ -42,7 +40,6 @@ const getResolvedMarkdown = async () => {
         'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/command-line/prism-command-line.min.css',
         'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/show-invisibles/prism-show-invisibles.min.css',
       ],
-      style,
     })
     .use(rehypeStringify)
     .process(str);
