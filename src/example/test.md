@@ -1,6 +1,13 @@
-### demos
+# demos
 
-- treeview
+## inline codes
+
+    // Some comments
+    const a = 1;
+    console.log(a);
+
+
+## treeview
 
 ```treeview[class=no-line-numbers]
 root_folder
@@ -16,6 +23,7 @@ root_folder
 └── etc.
 ```
 
+## bash
 
 ```bash[data-prompt="Cmder C:\Users\haha>" data-output="2-11"]
 dir
@@ -61,6 +69,8 @@ ls -la
 }
 ```
 
+## diff
+
 ```diff[ssd.js][class="language-diff-javascript diff-highlight"]
 -    let foo = bar.baz([1, 2, 3]);
 -    foo = foo + 1;
@@ -68,16 +78,17 @@ ls -la
 +    console.log(`foo: ${foo}`);
 ```
 
+```bash
+yarn add --dev @nuxt/bridge@npm:@nuxt/bridge-edge
+```
+
+## other
 
 ```css [attrname="aaa1 aaa2 cc bb nn"][attrname2="ccc3-f-gg-hh-hh"][class="xxx1"]{2,3}[cdf=op][class="xxx2 xxx3"]
 @font-face {
 	src: url(http://lea.verou.me/logo.otf);
 	font-family: 'LeaVerou';
 }
-```
-
-```bash
-yarn add --dev @nuxt/bridge@npm:@nuxt/bridge-edge
 ```
 
 ```css

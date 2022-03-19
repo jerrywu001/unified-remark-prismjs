@@ -159,8 +159,18 @@ const PLUGINS = [
 const modulesDir = path.join(process.cwd(), 'node_modules');
 
 function normalizeCodeNode(node) {
-  let { lang = '', meta } = node;
+  const defaultLang = 'js';
+  let { lang, meta } = node;
   meta = meta || '';
+  lang = lang || '';
+
+  if (!node.lang) {
+    node.lang = defaultLang;
+  } else if (node.lang && (node.lang.startsWith('[') || node.lang.startsWith('{'))) {
+    node.meta = `${node.lang} ${meta}`;
+    node.lang = defaultLang;
+  }
+
   const firstChar = lang.charAt(0);
   const existBracket = lang.includes('{') || lang.includes('[');
   if (existBracket && !['{', '['].includes(firstChar)) {

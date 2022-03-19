@@ -7,7 +7,7 @@ import remarkPrism from './src/index.js';
 
 // full usage: src/example/test.md
 const src = `
-\`\`\`javascript
+\`\`\`{1}
 console.log('Hello Worlds');
 \`\`\`
 `;
@@ -32,4 +32,6 @@ unified()()
   .use(remarkRehype)
   .use(rehypeFormat)
   .use(rehypeStringify)
-  .process(src, (err, file) => console.log(String(file)));
+  .process(src, (err, file) => {
+    console.log(String(file))
+  });
