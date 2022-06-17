@@ -65,7 +65,10 @@ const remarkPrism =
 
       const code = h(
         'code',
-        { className: langClassName },
+        {
+          className: langClassName,
+          __ignoreMap: '',
+        },
         highlight({
           lang,
           value:
