@@ -81,10 +81,15 @@ const remarkPrism =
           range,
         })
       );
-
       const pre = h(
         'div',
-        { className: 'remark-highlight', style: 'position: relative' },
+        {
+          className: 'remark-highlight',
+          style: 'position: relative',
+          code: value,
+          filename,
+         ...attrs,
+        },
         [
           h(
             'pre',
