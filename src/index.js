@@ -84,11 +84,11 @@ const remarkPrism =
       const pre = h(
         'div',
         {
+          ...attrs,
           className: 'remark-highlight',
           style: 'position: relative',
           code: value,
           filename,
-         ...attrs,
         },
         [
           h(
