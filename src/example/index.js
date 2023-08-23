@@ -34,12 +34,12 @@ const getResolvedMarkdown = async () => {
       title: 'code playground',
       css: [
         'https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/line-numbers/prism-line-numbers.min.css',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/inline-color/prism-inline-color.min.css',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/diff-highlight/prism-diff-highlight.min.css',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/treeview/prism-treeview.min.css',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/command-line/prism-command-line.min.css',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.27.0/plugins/show-invisibles/prism-show-invisibles.min.css',
+        'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css',
+        'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/inline-color/prism-inline-color.min.css',
+        'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/diff-highlight/prism-diff-highlight.min.css',
+        'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/treeview/prism-treeview.min.css',
+        'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/command-line/prism-command-line.min.css',
+        'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/show-invisibles/prism-show-invisibles.min.css',
       ],
       style,
     })

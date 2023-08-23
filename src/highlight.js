@@ -3,9 +3,9 @@ const { createContext, runInContext } = require('vm');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 const escapeHtml = require('escape-html');
-const components = require('prismjs/components.json');
-const getLoader = require('prismjs/dependencies.js');
-const { html2hast, modulesDir, PLUGINS } = require('./core.js');
+const components = require('./prismjs/components.json');
+const getLoader = require('./prismjs/dependencies.js');
+const { html2hast, PLUGINS } = require('./core.js');
 
 const domHighlight = (value, attrs = {}, range = []) => {
   const highlightBg =
@@ -63,8 +63,8 @@ const loadLanguages = (parsingContext) => {
     }
 
     const filename = path.join(
-      modulesDir,
-      `prismjs/components/prism-${lang}.js`
+      __dirname,
+      `./prismjs/components/prism-${lang}.js`
     );
     runInContext(RUN(readFileSync(filename, 'utf-8')), parsingContext, {
       filename,
@@ -97,7 +97,7 @@ module.exports = function ({ plugins = [] }) {
   const { window } = new JSDOM('');
   const parsingContext = createContext(window);
 
-  const prismjs = path.join(modulesDir, 'prismjs/prism.js');
+  const prismjs = path.join(__dirname, './prismjs/prism.js');
   runInContext(RUN(readFileSync(prismjs, 'utf-8')), parsingContext, {
     filename: prismjs,
   });
@@ -112,10 +112,10 @@ module.exports = function ({ plugins = [] }) {
   // load plugins into the Prism object
   plugins.forEach((pl) => {
     const plugin = PLUGINS.includes(pl)
-      ? `prismjs/plugins/${pl}/prism-${pl}`
+      ? `./prismjs/plugins/${pl}/prism-${pl}`
       : pl;
 
-    const filename = path.join(modulesDir, `${plugin}.js`);
+    const filename = path.join(__dirname, `${plugin}.js`);
     return runInContext(RUN(readFileSync(filename, 'utf-8')), parsingContext, {
       filename,
     });
